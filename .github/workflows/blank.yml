@@ -5,15 +5,22 @@ on:
   push:
     branches: [ "main" ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-  
 jobs:
-  # This workflow contains a single job called "build"
-  build:
+    build:
+    env: 
+      platform: aws
+      region: us-east-1
+      account: 0123456789012
+
+      
     runs-on: ubuntu-latest
   
     steps: 
       - name: "Mostrar Mensaje"
         run: echo "Hola Mundo"
+        
+      - name: 
+        run:
+          echo"esto es el valor de platform: ${{ platform }}"
+          echo"esto es el valor de region: ${{ region }}"
+          echo"esto es el valor de account: ${{ account }}"  
